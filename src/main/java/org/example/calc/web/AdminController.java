@@ -52,13 +52,13 @@ public class AdminController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("books/add")
+    @PostMapping("/books/add")
     public Book add(@RequestBody Book book) { return bookService.addBook(book); }
 
-    @PostMapping("books/price/{id}/{price}")
+    @PostMapping("/books/price/{id}/{price}")
     public Book updatePrice(@PathVariable String id, @PathVariable Double price) { return bookService.updatePrice(id, price); }
 
-    @DeleteMapping("books/{id}")
+    @DeleteMapping("/books/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable String id) {
         bookService.removeBook(id);
         return ResponseEntity.noContent().build();
