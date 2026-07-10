@@ -67,7 +67,7 @@ public class BookService {
         if(bookRepository.bookAlreadyExists(book)) {
             throw new IllegalArgumentException("Dana książka już jest w bazie danych.");
         }
-        return book;
+        return bookRepository.save(book);
     }
     @Transactional
     public Book addSuggestedBook(Book book) {
@@ -77,7 +77,7 @@ public class BookService {
         if(bookRepository.bookAlreadyExists(book)) {
             throw new IllegalArgumentException("Dana książka już jest w bazie danych.");
         }
-        return book;
+        return bookRepository.save(book);
     }
     @Transactional
     public void removeBook(String id) {
