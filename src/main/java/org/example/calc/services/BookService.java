@@ -71,12 +71,12 @@ public class BookService {
     }
     @Transactional
     public Book addSuggestedBook(Book book) {
+        book.setQuantity(0);
+        book.setPrice(9999);
         bookValidator.validate(book);
         if(bookRepository.bookAlreadyExists(book)) {
             throw new IllegalArgumentException("Dana książka już jest w bazie danych.");
         }
-        book.setQuantity(0);
-        book.setPrice(9999);
         return book;
     }
     @Transactional
