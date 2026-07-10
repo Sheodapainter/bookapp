@@ -25,16 +25,16 @@ public class BookController {
     public List<Book> showAllBooks() { return bookService.findAllBooks(); }
 
     @GetMapping("/{id}")
-    public Book get(@RequestParam String id) { return bookService.findById(id); }
+    public Book get(@PathVariable String id) { return bookService.findById(id); }
 
     @GetMapping("/title/{title}")
-    public Book getByTitle(@RequestParam String title) { return bookService.findByTitle(title); }
+    public Book getByTitle(@PathVariable String title) { return bookService.findByTitle(title); }
 
     @GetMapping("/author/{author}")
-    public List<Book> getAuthors(@RequestParam String author) { return bookService.findAuthorsBooks(author); }
+    public List<Book> getAuthors(@PathVariable String author) { return bookService.findAuthorsBooks(author); }
 
     @GetMapping("/genre/{genre}")
-    public List<Book> getGenre(@RequestParam String genre) { return bookService.findGenreBooks(genre); }
+    public List<Book> getGenre(@PathVariable String genre) { return bookService.findGenreBooks(genre); }
 
     @PostMapping
     public Book suggest(@RequestBody Book book) { return bookService.addSuggestedBook(book); }
